@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>喵小瞳内测</title>
+<meta name="keywords" content="喵小瞳，让爱车时刻在你身边！！">
+<meta name="description" content="喵小瞳，让爱车时刻在你身边！！">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<style>
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset, legend, input, textarea, select, img {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font: 12px/1.5 "Microsoft YaHei", tahoma, arial, Hiragino Sans GB, \5b8b\4f53;
+	background-color:#fcd361;
+}
+html, body, .am-page, .am-body, .am-bg {
+	height: 100%;
+	width: 100%;
+}
+
+a{color:#000;text-decoration: none;}
+ul, li {
+	list-style: none;
+}
+.am-body {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.fl {
+	float: left !important;
+}
+.fr {
+	float: right !important;
+}
+.w320 {
+	width: 320px;
+}
+.fn-hide {
+	display: none !important;
+}
+.arrow-down {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-width: 5px 5px 0 5px;
+	border-color: #eeeeee transparent transparent transparent;
+	border-style: solid dashed dashed dashed;
+}
+.am-page, .am-bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.am-page {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+.am-bg {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	left: 0;
+}
+.main-content, .ft-content {
+	width: 1000px;
+	margin: 0 auto;
+	height: 100%;
+}
+.main-content {
+	position: relative;
+	z-index: 99;
+}
+.onepage-pagination {
+	position: absolute;
+	right: 25px;
+	top: 50%;
+	z-index: 996;
+}
+.onepage-pagination a, .onepage-pagination .dotted {
+	display: block;
+	width: 10px;
+	height: 10px;
+}
+.onepage-pagination a {
+	padding: 8px;
+}
+.onepage-pagination .dotted {
+	border: 1px #cccccc solid;
+	position: relative;
+	display: block;
+	border-radius: 50%;
+	-webkit-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+.onepage-pagination .active .dotted {
+	border-color: #0cf;
+	background-color: #0cf !important;
+}
+.ftbar {
+	height: 60px;
+	overflow: hidden;
+	z-index: 101;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,.3);
+}
+.ft-content {
+}
+.products {
+	padding-top: 12px;
+}
+.product {
+	float: left;
+}
+.product .icon {
+	font-family: "Microsoft YaHei";
+	color: #fff;
+	font-size: 32px;
+	float: left;
+	font-style: normal;
+	display: block;
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+}
+.product .tips {
+	padding-left: 12px;
+	margin-left: 42px;
+	position: relative;
+}
+.product .tips:before {
+	content: "";
+	display: block;
+	background-color: #b5b5b5;
+	position: absolute;
+	height: 90%;
+	width: 1px;
+	top: 1px;
+	left: -1px;
+}
+.product .tips p, .product .tips span {
+	line-height: 1;
+}
+.product .tips p, .product .tips span {
+	color: #fff;
+}
+.product .tips p {
+	font-size: 16px;
+}
+.product .tips span {
+	font-size: 12px;
+	margin-top: 5px;
+	display: inline-block;
+}
+.products .zzfk, .products .gh, .products .ewmfk, .products .wjsy, .products .gjys {
+	margin-left: 40px;
+}
+.products .gjhk, .products .ssqx, .products .ckbg, .products .sbfk, .products .rmbfk {
+	float: right;
+	margin-right: 40px;
+}
+/*.products .ewmfk,.products .fkmfk,.products .gjys,.products .ppzp { width: 320px;}*/
+.products .fkmfk {
+	margin-left: 150px;
+}
+.products .ppzp {
+	margin-left: 130px;
+}
+.products .ewmfk {
+}
+.products .gh {
+}
+.products .yhf, .products .zndz {
+	margin-left: 80px;
+}
+/*.products .wjsy {margin-left: 80px;}*/
+.products .aqbz {
+	margin-left: 80px;
+}
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.header .am-header-inner {
+	position: relative;
+	z-index: 2;
+}
+.header .topNav .laymid, .topNav {
+	background: #1e1b29;
+}
+.header .laymid {
+	width: 1000px;
+	margin: 0 auto;
+}
+.topNav {
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+}
+.topNav li {
+	float: left;
+	margin: 0 15px;
+	text-align: center;
+}
+.topNav li.first {
+	margin-left: 0 !important;
+}
+.topNav, .topNav a, .topNav span {
+	color: #fff;
+	font-size: 12px;
+}
+.topNav a {
+	text-decoration: none;
+}
+.topNav a:hover, .topNav li.on a {
+	color: #2974e5;
+}
+.topNav .rlink li {
+	margin: 0 5px;
+}
+.am-bannarAd-box {
+	position: relative;
+	z-index: 1;
+	display: none;
+}
+.mainNav {
+	background-color: #ffffff;
+	border-bottom: 1px #eeeeee solid;
+	background-color: rgba(255,255,255,.9);
+}
+.mainMenu {
+	float:right;
+}
+.mplanet-logo {
+	display: block;
+	width: 227px;
+	position: relative;
+	left: 0;
+	top: 10px;
+	float: left;
+	height: 56px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-image:url(img/logo.png);
+}
+.mainNav, .mainMenu, .channel .downlist .close {
+	height: 80px;
+}
+.channel {
+	float: left;
+	height: 80px;
+	line-height: 80px;
+	position: relative;
+}
+.channel .channel-a, .channel .downlist a {
+	text-decoration: none;
+	color: #333;
+	font-size: 16px;
+	display: block;
+}
+.channel .downlist {
+	display: none;
+	box-shadow: 0 0 2px rgba(128,128,128,0.5);
+	position: absolute;
+	top: 0;
+	left: -5px;
+	width: 100%;
+	padding: 0 5px 0;
+	text-align: center;
+	background: #ffffff;
+}
+.channel .downlist a {
+	line-height: 28px;
+	padding: 0 5px;
+	margin: 0 -5px;
+}
+.channel .downlist .together {
+	padding-bottom: 15px;
+}
+.channel .downlist .tp a {
+	font-size: 14px;
+}
+.channel .downlist .ft {
+	border-top: 1px #eeeeee solid;
+}
+.channel .downlist .ft span {
+	font-size: 16px;
+	color: #999;
+	display: block;
+	height: 80px;
+	line-height: 80px;
+}
+.channel .downlist a:hover {
+	background: #2974e5;
+	color: #fff;
+}
+.channel .downlist .close {
+	display: block;
+	cursor: pointer;
+	line-height: 80px;
+	text-align: center;
+	font-size: 24px;
+	color: #999;
+	font-family: "alipayhome";
+	-webkit-font-smoothing: antialiased;
+}
+.mainMenu .hover .downlist {
+	display: block;
+}
+.channel-a {
+	padding: 0 20px;
+}
+.channel-a:hover, .mainMenu .on .channel-a, .am-service .downlist a:hover {
+	color:#1ea1f5;
+}
+.hasleftline {
+	padding-left: 20px;
+	margin-left: 20px;
+}
+.hasleftline a{margin-top:15px;color:#FFF;background:#e04557;border: solid #e04557 2px;border-radius: 30px;line-height: 28px;text-align: center;padding:5px 28px 5px 28px;font-size: 16px;}
+.hasleftline:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 32px;
+	left: 0;
+	width: 1px;
+	height: 16px;
+	background: #444;
+}
+.mainBox{
+	width:100%;
+	height:773px;
+	background:url(img/beta-bg.jpg) center;
+	}
+.main{
+	width:966px;
+	margin:0 auto;
+	padding-top:630px;
+	}
+.mainTitle{width:751px;height:151px;margin:0 auto;background:url(img/beta-Statistics.png) no-repeat;}
+
+.contentBox{
+	margin-top:20px;
+	overflow:hidden;
+	padding-bottom:50px;
+	}
+.flow{overflow:hidden;}
+.flow01,.flow02,.flow03,.flow04,.flow05{background:url(img/test-procedure-bg.png) no-repeat;width:180px;height:269px;float:left;}
+.flow02,.flow03,.flow04,.flow05{margin-left:15px;}
+.flow01 ul,.flow02 ul,.flow03 ul,.flow04 ul,.flow05 ul{width:150px;margin:0 auto;}
+.flow01 ul li,.flow02 ul li,.flow03 ul li,.flow04 ul li,.flow05 ul li{text-align:center;}
+.number{color:#333333;font-size:24px;padding-top:5px;}
+.flowname{color:#b88010;font-size:18px;font-weight:bold;margin-top:20px;}
+.nameIcon{margin-top:20px;}
+.notes{color:#555555;font-size:14px;margin-top:15px;}
+.namelist td{padding-left:30px;}
+.statement{background:#FFF;}
+.statement ul{padding-left:30px;padding-right:30px;padding-top:30px;color:#b88010;font-size:18px;font-weight:bold;}
+.statement ul li{color:#555555;font-size:14px;font-weight:normal;line-height:28px;}
+.care{color:#b88010;font-size:14px;margin-left:30px;margin-top:15px;padding-bottom:40px;}
+.footer {
+	width: 100%;
+	margin:0 auto;
+	background-color:#ffedbb;
+}
+.footerPart2 {width:966px;
+	overflow:hidden;
+	margin:0 auto;
+	padding-top:10px;
+	padding-bottom:20px;
+}
+.cooperate,.contact{overflow:hidden;line-height: 38px;}
+.cooperate li{color:#999999;font-size:12px;}
+.cooperate  li a,.cooperate  li span{color:#777777;font-size:12px;margin-left:10px;}
+
+.footerPart2left,.footerPart2right{float:left;}
+.footerPart2right{float:right;}
+
+
+
+</style>
+</head>
+<body class="maxH800">
+<!-- <div class="header">
+  <div class="am-header-inner"> </div>
+  <div class="mainNav">
+    <div class="laymid">
+      <div class="mplanet-logo"></div>
+      <div id="J_mainMenu" class="mainMenu">
+        <ul>
+          <li id="J_channel_cfzx" class="channel"> <a class="channel-a" href="index.htm#1" seed="channel-channelA" smartracker="on">喵小瞳</a> </li>
+          <li class="channel"> <a class="channel-a" href="mplanetmedia.htm" seed="J_channel_cfzx-channelA" smartracker="on">喵动态</a> </li>
+          <li id="J_channel_shfw" class="channel"> <a class="channel-a" target="_blank" href="community.htm" seed="J_channel_shfw-channelA" smartracker="on">喵社区</a> </li>
+          <li id="J_channel_aqbz" class="channel"> <a class="channel-a" href="appdownload.htm" seed="J_channel_aqbz-channelA" smartracker="on">APP下载</a></li>
+          <li id="J_channel_aqbz" class="channel"> <a class="channel-a" href="questions.htm" seed="J_channel_aqbz-channelA" smartracker="on">产品帮助</a></li>
+          <li id="J_channel_shfw" class="channel hasleftline"> <a href="beta.htm">荣誉内测</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--header end-->
+
+
+<div class="mainBox">
+   <div class="main">
+     <table class="mainTitle">
+       <tr align="center" valign="bottom" style="color:#333333;font-size:18px;">
+         <td width=200 style="padding-bottom:15px;">内测名额：<span style="color:#6e560a;font-size:32px;font-weight:bold;">30台</span></td>
+         <td width=235 style="padding-bottom:15px;">已申请数：<span  style="color:#6e560a;font-size:32px;font-weight:bold;"><span id="applications">6878</span>人</span></td>
+         <td style="padding-bottom:8px;"><img src="img/beta-code.png"/></td>
+         <td width=150 style="padding-bottom:15px;color:#333333;font-size:14px;">扫描二维码<p style="color:#e34a56;font-size:18px;font-weight:bold;">免费申请</p></td>
+       </tr>
+     </table>
+     <div class="contentBox">
+        <div><img src="img/beta-class01.png"/></div>
+        <div class="flow">
+          <div class="flow01">
+            <ul>
+              <li class="number">1</li>
+              <li class="flowname">申请</li>
+              <li class="nameIcon"><img src="img/test-procedure-sq.png"/></li>
+              <li class="notes">*手机扫码填写产品内测申请表</li>
+            </ul>
+          </div><!--flow01 end-->
+          <div class="flow02">
+            <ul>
+              <li class="number">2</li>
+              <li class="flowname">审核</li>
+              <li class="nameIcon"><img src="img/test-procedure-sh.png"/></li>
+              <li class="notes">*审核通过的内测用户进行电话确定</li>
+            </ul>
+          </div><!--flow02 end-->
+          <div class="flow03">
+            <ul>
+              <li class="number">3</li>
+              <li class="flowname">公布</li>
+              <li class="nameIcon"><img src="img/test-procedure-gb.png"/></li>
+              <li class="notes">*审核通过后3天内公布内测名单</li>
+            </ul>
+          </div><!--flow03 end-->
+          <div class="flow04">
+            <ul>
+              <li class="number">4</li>
+              <li class="flowname">发货</li>
+              <li class="nameIcon"><img src="img/test-procedure-fh.png"/></li>
+              <li class="notes">*名单公布3天内发放产品</li>
+            </ul>
+          </div><!--flow04 end-->
+          <div class="flow05">
+            <ul>
+              <li class="number">5</li>
+              <li class="flowname">提交试用报告</li>
+              <li class="nameIcon"><img src="img/test-procedure-tj.png"/></li>
+              <li class="notes">*收到产品15天内提交产品试用报告</li>
+            </ul>
+          </div><!--flow04 end-->
+        </div><!--flow end-->
+
+<!--以下名单列表内容发布时隐藏，待名单选定后才获取并发布 -->
+      <div style="margin-top:30px;"><img src="img/beta-class02.png"/></div>
+      <table class="namelist" width=966 border="0" cellpadding="0" cellspacing="0" style="color:#555555;font-size:16px;line-height:40px;">
+     	<tr style="background-color:#fff;">
+        <td colspan="4" style="font-weight:bold">第一批内测名单公布：</td>
+      </tr>
+        <tr style="background-color:#fff;">
+          <td>洪** 134*******4</td>
+          <td>张*&nbsp; 135*******6</td>
+          <td>李*&nbsp; 155*******5</td>
+          <td>章** 151*******3</td>
+        </tr>
+        <tr style="background-color:#faf5ed;">
+          <td>郭*&nbsp; 188*******8</td>
+          <td>王** 170*******7</td>
+          <td>田*&nbsp; 186*******3</td>
+          <td>冯** 136*******6</td>
+        </tr>
+        <tr style="background-color:#fff;">
+          <td>丁** 136*******7</td>
+          <td>柴** 186*******8</td>
+          <td colspan="2"></td>
+        </tr>
+      <tr style="background-color:#fff;">
+        <td colspan="4" style="font-weight:bold">第二批内测名单公布：</td>
+      </tr>
+        <tr style="background-color:#fff;">
+          <td>陈**	135*******6</td>
+          <td>刘*&nbsp;	"158*******5</td>
+          <td>蒋**	186*******0</td>
+          <td>储** 	139*******8</td>
+        </tr>
+        <tr style="background-color:#faf5ed;">
+          <td>赵**	153*******7</td>
+          <td>马*&nbsp;	"186*******1</td>
+          <td>陶*&nbsp;	139*******7</td>
+          <td>傅*&nbsp; 	156*******2</td>
+        </tr>
+        <tr style="background-color:#fff;">
+          <td>奉** 	158*******9</td>
+          <td>陈*&nbsp;	159*******7</td>
+          <td colspan="2"></td>
+        </tr>
+      <tr style="background-color:#fff;">
+        <td colspan="4" style="font-weight:bold">第三批内测名单公布：</td>
+      </tr>
+      <tr style="background-color:#fff;">
+          <td>李** 159*******1</td>
+          <td>马** 153*******7</td>
+          <td>沈** 170*******3</td>
+          <td>刘*&nbsp; 136*******2</td>
+        </tr>
+        <tr style="background-color:#faf5ed;">
+          <td>孙**	131*******6</td>
+          <td>刘**	132*******4</td>
+          <td>罗*&nbsp;	138*******8</td>
+          <td>王**	187*******2</td>
+        </tr>
+        <tr style="background-color:#fff;">
+          <td>刘**	135*******9</td>
+          <td>王**	130*******1</td>
+          <td>蒋**	186*******8</td>
+          <td>林**	156*******0</td>
+        </tr>
+        <tr style="background-color:#fff;">
+          <td>唐**	157*******6</td>
+          <td>李*&nbsp; 180*******8</td>
+          <td>陈**	189*******0</td>
+          <td></td>
+        </tr>
+      </table>
+<!------------------------------------------------------------------>
+
+      <div><img src="img/beta-class03.png"/></div>
+      <div class="statement">
+        <ul>活动时间
+          <li>内测申请时间：2015.09.24至2015.10.15</li>
+          <li>名单公布时间：申请关闭后3天内公布内测名单</li>
+          <li>产品发货时间：内测名单公布3天后开始发放产品</li>
+          <li>报告上传截至：收到产品后15天内</li>
+        </ul>
+        <ul>内测声明
+          <li>1.本次内测为免费活动，所有参加活动的用户无需缴纳任何费用。测试产品自带有效期为半年的6G全国通用数据流量包，如果用户需要扩充流量包，扩充流量包所需支付的费用将由用户自行承担。</li>
+          <li>2.获得内测资格的用户将在申请活动结束后在喵星科技官网论坛和微信公众号上公布，获得试用资格的用户，由工作人员和用户电话确认后，按照用户提供的收货地址邮寄试用产品。</li>
+          <li>3.用户收到试用产品后，请立即激活产品开始体验，活动有效期内用户可在QQ群、微信群中及时向管理员反馈测试问题，并在活动截稿日期前按要求提交产品试用报告一份。优秀的试用报告将被评为“精品报告”，不仅会被优先展示，还可能获得更多的奖励。不合格的报告，我们将联系用户进行修改。逾期未提交报告者，将被列入黑名单，喵星科技将终止该用户今后参与本司举行所有活动的资格。</li>
+          <li>4.用户提交的试用报告请使用Word文档格式，连同活动中拍摄的照片，发送电子邮件至mp@mplanet.cn。</li>
+          <li>5.用户提交的试用报告版权归用户及活动主办方共有，主办方有权将筛选出的精品试用报告在相关渠道进行发布。</li>
+          <li>6.南京喵星科技有限公司在法律规定范围内对本次活动具有最终解释权。</li>
+        </ul>
+        <div class="care">*内测期间，可在QQ群、微信群中及时向管理员反馈测试问题。喵小瞳内测交流群：188955771</div>
+      </div>
+
+     </div><!--contentBox end-->
+   </div> <!--main end-->
+
+<div class="footer">
+      <div class="footerPart2">
+        <div class="footerPart2left">
+          <ul class="cooperate">
+            <li>友情合作<a target="_blank" href="http://www.tisiwi.com/">天使湾创投</a><a target="_blank" href="http://www.foxconn.com.cn/">富士康科技集团</a><a target="_blank" href="http://iot.open.qq.com/">腾讯QQ物联</a><a target="_blank" href="http://www.lkkdesign.com/">洛可可</a><a target="_blank" href="http://www.lieyunwang.com/">猎云网</a></li>
+            <li>联系我们<span>地址：江苏省南京市长江后街6号东大科技园</span><span>邮箱：mp@mplanet.cn</span></li>
+            <li>版权信息<span>Copyright@2004-2015 喵星科技 版权所有</span></li>
+          </ul>
+        </div>
+
+        <div class="footerPart2right">
+          <ul class="attention">
+          <li><p><img src="img/gzh.png"/></p></li>
+          <li style="color:#999999;margin-left:30px;">关注我们</li>
+        </ul>
+        </div>
+      </div>  
+      
+  </div><!--footer end-->         
+</div><!--mainBox end-->
+<!--script>
+jQuery(function ($){
+	 $.get("/usrmgr/applications.php",function(data){
+	 	  $("#applications")[0].innerHTML=data;
+   });
+});	
+</script-->
+</body>
+</html>
