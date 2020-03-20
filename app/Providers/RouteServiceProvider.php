@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider {
     public function boot() {
         //
         Route::pattern('id', '[0-9]+');
-        Route::pattern('route', '('.implode('|', MenuRepository::firstMenuRoute()).')+');
+        Route::pattern('firstRoute', '('.implode('|', (new MenuRepository())->firstMenuRoute()).')+');
 //        Route::pattern('rule', '[A-Za-z_\-@&]+');
         parent::boot();
     }

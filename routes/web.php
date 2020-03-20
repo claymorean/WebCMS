@@ -16,7 +16,8 @@
 //});
 
 
-Route::get('/{route?}', 'IndexController@page');
+Route::get('/{firstRoute?}', 'IndexController@firstPage');
+Route::get('/{firstRoute}/{secondRoute}', 'IndexController@secondPage');
 
 //Auth::routes();
 //Route::get('/verifyCode', 'LoginController@verifyCode')->middleware('web');
@@ -35,15 +36,16 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Auth'], function () {
         Route::get('/login', 'LoginController@showLoginForm')->name('login');
         Route::post('/login', 'LoginController@login');
-        Route::get('/logout', 'LoginController@logout');
+        Route::get('/logout', 'LoginController@logout')->name('logout');
         Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');;
         Route::post('/register', 'RegisterController@register');
         Route::post('/resetPass', ['uses' => 'UserController@resetPassword']);
     });
 
     Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+        Route::get('/', 'AdminController@index');
+        Route::get('/banner', 'BannerController@index')->name('banner');
+        Route::get('/banner/{page}', 'BannerController@getBanners');
+        Route::post('/banner', 'BannerController@index');
     });
 });

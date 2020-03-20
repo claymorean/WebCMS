@@ -301,18 +301,18 @@ li{
     margin-bottom:30px;
 }
 
-.solve-main-title{
+.main-title{
     text-align: center;
     margin-top:40px;
     margin-bottom:40px;
 }
 
-.solve-main-title>h1{
+.main-title>h1{
     font-size: 44px;
 }
 
 
-.solve-main{
+.main{
     background: #f5f8fa;
     padding:60px 0px;
 }

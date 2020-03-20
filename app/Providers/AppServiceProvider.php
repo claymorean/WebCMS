@@ -21,7 +21,6 @@ class AppServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot(ConfigRepository $configs) {
-        $configs = $configs->all()->toArray();
-        view()->share('configs', (object) array_combine(array_column($configs, 'key'), array_column($configs, 'value')));
+        view()->share('configs', $configs->format());
     }
 }

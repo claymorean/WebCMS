@@ -1,4 +1,4 @@
-@extends('layouts.layouts_1')
+@extends('layouts.layouts')
 @section('title')
     首页
 @endsection

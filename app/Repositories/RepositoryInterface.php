@@ -5,7 +5,10 @@
  * Date: 2020/3/12
  * Time: 18:02
  */
+
 namespace App\Repositories;
+
+use Illuminate\Database\Eloquent\Model;
 
 interface RepositoryInterface {
 //    public function all($columns = array('*'));
@@ -15,4 +18,7 @@ interface RepositoryInterface {
 //    public function delete($id);
 //    public function find($id, $columns = array('*'));
 //    public function findBy($field, $value, $columns = array('*'));
+    public function setModel();
+
+    public function getModel();
 }
